@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8" />
+    <title>Практична №2 — TypeScript інтерактивність</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+<header class="header">
+    <div class="container header-row">
+        <div class="logo">CampusTS</div>
+        <nav class="nav">
+            <a href="#about">Про сайт</a>
+            <a href="#tasks">Список задач</a>
+        </nav>
+        <button class="btn btn-primary" data-open-modal>
+            Бронювати консультацію
+        </button>
+    </div>
+    <div class="header-progress" id="headerProgress"></div>
+</header>
+
+<main>
+    <section class="hero" id="hero">
+        <div class="container hero-inner">
+            <h1>Демонстрація інтерактивності на TypeScript</h1>
+            <p>
+                Модальне вікно, індикатор прокрутки сторінки,
+                завантаження задач з API та плавні анімації елементів.
+            </p>
+            <button class="btn btn-outline" data-scroll-target="#tasks">
+                Перейти до задач
+            </button>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="container">
+            <h2>Що реалізовано</h2>
+            <div class="cards">
+                <article class="card observe">
+                    <h3>Модальне вікно</h3>
+                    <p>Форма бронювання консультації зі звичайним текстом.</p>
+                </article>
+                <article class="card observe">
+                    <h3>Індикатор прокрутки</h3>
+                    <p>У шапці показується, яку частину сторінки вже переглянуто.</p>
+                </article>
+                <article class="card observe">
+                    <h3>Задачі з API</h3>
+                    <p>Завантаження списку задач із JSONPlaceholder за допомогою fetch.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="tasks" id="tasks">
+        <div class="container">
+            <h2>Список задач (JSONPlaceholder /todos)</h2>
+            <p class="tasks-subtitle">
+                При завантаженні сторінки показується перша порція задач.
+                Можна дозавантажити ще.
+            </p>
+            <div id="tasksContainer" class="tasks-grid"></div>
+            <button id="loadMoreTasks" class="btn btn-primary">
+                Завантажити ще задачі
+            </button>
+        </div>
+    </section>
+</main>
+
+<!-- Модальне вікно -->
+<div class="backdrop" id="backdrop"></div>
+
+<div class="modal" id="bookingModal">
+    <div class="modal-content">
+        <button class="modal-close" data-close-modal>&times;</button>
+        <h3>Бронювання консультації</h3>
+        <p>Це демонстраційна форма. Дані нікуди не надсилаються.</p>
+        <label class="field">
+            <span>Ім'я</span>
+            <input type="text" />
+        </label>
+        <label class="field">
+            <span>Дата</span>
+            <input type="date" />
+        </label>
+        <label class="field">
+            <span>Коментар</span>
+            <textarea rows="3"></textarea>
+        </label>
+        <button class="btn btn-primary" data-close-modal>Готово</button>
+    </div>
+</div>
+
+<button class="scroll-top" id="scrollTopBtn">↑</button>
+
+<script type="module" src="./dist/index.js"></script>
+</body>
+</html>
